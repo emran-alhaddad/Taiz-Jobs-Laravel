@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminCompaniesController;
+use App\Http\Controllers\AdminHomeController;
+use App\Http\Controllers\AdminJobsController;
+use App\Http\Controllers\AdminServicesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,33 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/about', [AboutController::class, 'index']);
-
-Route::get('/services', [ServiceController::class, 'index']);
-
-Route::get('/companies', [PartenerController::class, 'index']);
-
-Route::get('/job', [JobController::class, 'index']);
-
-Route::get('/contact-us', [ContactController::class, 'index']);
-
-Route::get('/login', [LoginController::class, 'index']);
-
-Route::get('/signup', [SignupController::class, 'index']);
-
-Route::get('/profile', [ProfileController::class, 'index']);
-
-Route::get('/dashboard/user-info',  [DashboardController::class, 'index']);
-
-
-Route::get('/dashboard/courses', [DashboardController::class, 'courses']);
-
-
-Route::get('/dashboard/education', [DashboardController::class, 'education']);
-
-Route::get('/dashboard/experience', [DashboardController::class, 'experience']);
-
-Route::get('/dashboard/skills', [DashboardController::class, 'skills']);
+Route::get('/admin/jobs',[AdminJobsController::class,'index']);
+Route::get('/admin/services',[AdminServicesController::class,'index']);
+Route::get('/admin/companies',[AdminCompaniesController::class,'index'])->name('show_companies');
+Route::post('/admin/companies/add',[AdminCompaniesController::class,'addNew'])->name('add_company');
 
