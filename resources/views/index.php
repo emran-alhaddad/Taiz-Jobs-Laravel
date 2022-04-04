@@ -1,112 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jobs Website</title>
-    <link href="assets/fonts/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/login_signup_style.css">
-
-</head>
+<?php require_once("components/head.php"); ?>
 
 <body>
 
-    <header class="position-sticky top-0">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand fs-1 me-3" href="index.html"> <span class="text-danger">Taiz</span> Jobs</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto text-center mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="jobs.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Jobs
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="jobs.html">Jobs List</a></li>
-                                <li><a class="dropdown-item" href="job_details.html">Job Details</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="our_services.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Services
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="our_services.html">Service List</a></li>
-                                <li><a class="dropdown-item" href="parteners_and_companies.html">Companies List</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="about_us.html">About</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="contact.html">Contact</a>
-                        </li>
+<?php require_once("components/header.php"); ?>
 
 
-                    </ul>
-                    <div class="d-flex m-lg-2 flex-column flex-lg-row gap-2 mb-3 m-sm-3">
-                        <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-toggle="modal" data-bs-target="#signUpModal">
-                            <i class="fa fa-user me-2 "></i>SignUp </button>
+<?php require_once("components/carosel.php"); ?>
 
-                        <button type="button" class="btn btn-danger rounded-pill" data-bs-toggle="modal" data-bs-target="#loginModal">
-                            <i class="fa fa-sign-in-alt me-2  "></i> Login
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <!--  Start of Carousel -->
-
-    <div id="carouselExampleDark" class="carousel carousel-dark slide container-fluid carousel-fade mt-2" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000">
-                <img src="assets/images/carousel (1).jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
-                </div>
-            </div>
-            <div class="carousel-item" data-bs-interval="2000">
-                <img src="assets/images/carousel (2).jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
-                </div>
-            </div>
-
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-
-    <!-- End of Carousel -->
 
 
     <div class="container mt-5">
@@ -458,175 +361,14 @@
     </div>
 
 
-    <!-- Modal HTML -->
-    <div class="modal fade" id="loginModal">
-        <div class="modal-dialog modal-login  ">
-            <div class="modal-content ">
-                <div class="modal-header ">
-                    <div class="avatar ">
-                        <img src="assets/images/avatar.png " alt="Avatar ">
-                    </div>
-                    <h4 class="modal-title mt-5 text-center border-1 border-bottom">Member Login</h4>
-                    <button type="button " class="btn-close close " data-bs-dismiss="modal" aria-bs-label="Close"></button>
-                </div>
-                <div class="modal-body ">
-                    <form action="./dashboard/index.html" method="post " class="was-validated">
-                        <div class="form-group mb-2 position-relative">
-                            <label for="validationTooltipUsername" class="form-label">Username</label>
-                            <div class="input-group has-validation">
-                                <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-                                <input type="text" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
-                                <div class="invalid-feedback">
-                                    Please choose a unique and valid username.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group mb-2 position-relative">
-                            <label for="validationTooltipPassword" class="form-label">Password</label>
-                            <div class="input-group has-validation">
-                                <span class="input-group-text" id="validationTooltipPasswordPrepend">
-                                    *
-                                </span>
-                                <input type="password" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipPasswordPrepend" required>
-                                <div class="invalid-feedback">
-                                    Type Valid Password.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group mt-5 ">
-                            <button type="submit " class="btn btn-danger rounded-pill w-100 mb-1">
-                                <li class="fab fa-sign-in-alt text-light"></li>
-                                Login</button>
-                            <button type="button " data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#signUpModal" class="btn btn-outline-secondary rounded-pill w-100">
-                            <li class="fab fa-user-alt"></li>SignUp</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer ">
-                    <a href=" # ">Forgot Password?</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php require_once("components/modals.php"); ?>
 
-    <div class="modal fade" id="signUpModal">
-        <div class="modal-dialog modal-login ">
-            <div class="modal-content ">
-                <div class="modal-header ">
-                    <div class="avatar ">
-                        <img src="assets/images/avatar.png " alt="Avatar ">
-                    </div>
-                    <h4 class="modal-title mt-5 text-center border-1 border-bottom">Member SignUp</h4>
-                    <button type="button " class="btn-close close " data-bs-dismiss="modal" aria-bs-label="Close"></button>
-                </div>
-                <div class="modal-body ">
-                    <form action="./dashboard/index.html" method="post " class="was-validated">
-                        <div class="form-group mb-2 position-relative">
-                            <label for="validationTooltipPassword" class="form-label">Email</label>
-                            <div class="input-group has-validation">
-                                <span class="input-group-text" id="validationTooltipEmailPrepend">
-                                    @
-                                </span>
-                                <input type="email" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipEmailPrepend" required>
-                                <div class="invalid-feedback">
-                                    Type Valid Email.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group mb-2 position-relative">
-                            <label for="validationTooltipUsername" class="form-label">Username</label>
-                            <div class="input-group has-validation">
-                                <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-                                <input type="text" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
-                                <div class="invalid-feedback">
-                                    Please choose a unique and valid username.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group mb-2 position-relative">
-                            <label for="validationTooltipPassword" class="form-label">Password</label>
-                            <div class="input-group has-validation">
-                                <span class="input-group-text" id="validationTooltipPasswordPrepend">
-                                    *
-                                </span>
-                                <input type="password" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipPasswordPrepend" required>
-                                <div class="invalid-feedback">
-                                    Type Valid Password.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group mt-5 ">
-                            <button type="button " data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#signUpModal" class="btn btn-outline-secondary rounded-pill w-100">
-                                <li class="fab fa-user"></li>SignUp</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer ">
-                    <a href=" # " data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#loginModal">has account?</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <footer>
-        <div class=" container-fluid bg-dark text-white-50 footer pt-5 mt-5 ">
-            <div class=" container py-5 ">
-                <div class=" row g-5 ">
-                    <div class=" col-lg-3 col-md-6 d-flex flex-column align-items-start">
-                        <h5 class=" text-white mb-4 ">Company</h5>
-                        <a class=" btn btn-link text-white-50 " href=" ">About Us</a>
-                        <a class=" btn btn-link text-white-50 " href=" ">Contact Us</a>
-                        <a class=" btn btn-link text-white-50 " href=" ">Our Services</a>
-                        <a class=" btn btn-link text-white-50 " href=" ">Privacy Policy</a>
-                        <a class=" btn btn-link text-white-50 " href=" ">Terms &amp; Condition</a>
-                    </div>
-                    <div class=" col-lg-3 col-md-6 d-flex flex-column align-items-start">
-                        <h5 class=" text-white mb-4 ">Quick Links</h5>
-                        <a class=" btn btn-link text-white-50 " href=" ">About Us</a>
-                        <a class=" btn btn-link text-white-50 " href=" ">Contact Us</a>
-                        <a class=" btn btn-link text-white-50 " href=" ">Our Services</a>
-                        <a class=" btn btn-link text-white-50 " href=" ">Privacy Policy</a>
-                        <a class=" btn btn-link text-white-50 " href=" ">Terms &amp; Condition</a>
-                    </div>
-                    <div class=" col-lg-3 col-md-6 d-flex flex-column align-items-start">
-                        <h5 class=" text-white mb-4 ">Contact</h5>
-                        <p class=" mb-2 "><i class=" fa fa-map-marker-alt me-3 "></i>123 Street, New York, USA</p>
-                        <p class=" mb-2 "><i class=" fa fa-phone-alt me-3 "></i>+012 345 67890</p>
-                        <p class=" mb-2 "><i class=" fa fa-envelope me-3 "></i>info@example.com</p>
-                        <div class=" d-flex pt-2 ">
-                            <a class=" btn btn-outline-light btn-social " href=" "><i class=" fab fa-twitter "></i></a>
-                            <a class=" btn btn-outline-light btn-social " href=" "><i
-                                    class=" fab fa-facebook-f "></i></a>
-                            <a class=" btn btn-outline-light btn-social " href=" "><i class=" fab fa-youtube "></i></a>
-                            <a class=" btn btn-outline-light btn-social " href=" "><i
-                                    class=" fab fa-linkedin-in "></i></a>
-                        </div>
-                    </div>
-                    <div class=" col-lg-3 col-md-6 ">
-                        <h5 class=" text-white mb-4 ">Newsletter</h5>
-                        <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                        <div class=" position-relative mx-auto " style=" max-width: 400px; ">
-                            <input class=" form-control bg-transparent w-100 py-3 ps-4 pe-5 " type=" text " placeholder=" Your email ">
-                            <button type=" button " class=" btn btn-danger py-2 position-absolute top-0 end-0 mt-2 me-2 ">SignUp</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class=" container ">
-                <div class=" copyright ">
-                    <div class=" row ">
-                        <div class=" col-12 text-center mb-3 mb-md-0 ">
-                            © <a class=" navbar-brand fs-1 me-3 text-light " href=" # "><span
-                                    class=" text-danger ">Taiz</span> Jobs</a>, All Right Reserved. Designed By <a class=" text-danger " href=" # ">Emran AL-Haddad</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    
+    <?php require_once("components/footer.php"); ?>
+
 
     <!-- Scripts  -->
-    <script src=" assets/js/bootstrap.bundle.js "></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <?php require_once("components/scripts.php"); ?>
 
 </body>
 
