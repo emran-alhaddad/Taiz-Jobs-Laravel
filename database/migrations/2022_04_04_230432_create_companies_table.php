@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string("title");
             $table->string("image")->default('default.png');
-            $table->text("description");
-            $table->string("is_active")->default("on");
+            $table->text("description")->nullable();
             $table->integer("created_by")->default(1);
+            $table->integer("is_active")->default(1);
             $table->timestamps();
         });
     }
