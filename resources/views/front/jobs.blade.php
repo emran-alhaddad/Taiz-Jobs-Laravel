@@ -17,84 +17,48 @@
                 </div>
                 <div class="col-12">
                     <div class="row">
-                        <div class="col">
-                            <div class="form-floating">
-                                <select class="form-select filter" id="categoryFilter"
-                                    aria-label="Floating label select example">
-                                    <option value="0">All</option>
-                                    <option value="Administration">Administration</option>
-                                    <option value="Communication">Communication</option>
-                                    <option value="Computers/IT">Computers/IT</option>
-                                    <option value="Consulting">Consulting</option>
-                                    <option value="Development">Development</option>
-                                    <option value="Education/Training">Education/Training</option>
-                                    <option value="Engineering">Engineering</option>
-                                    <option value="Finance/Accounting">Finance/Accounting</option>
-                                    <option value="Healthcare">Healthcare</option>
-                                    <option value="Human Resources">Human Resources</option>
-                                    <option value="Legal/Law">Legal/Law</option>
-                                    <option value="Logistics">Logistics</option>
-                                    <option value="Sales/Marketing">Sales/Marketing</option>
-                                    <option value="Security">Security</option>
-                                    <option value="Others">Others</option>
-                                </select>
-                                <label for="categoryFilter">Category</label>
+                        @if ($categories->count())
+                            <div class="col">
+                                <div class="form-floating">
+                                    <select class="form-select filter" name="category" id="categoryFilter"
+                                        aria-label="Floating label select example">
+                                        <option value="" selected disabled>All</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                        @endforeach
+                                    </select>
+                                    <label for="categoryFilter">Category</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-floating">
-                                <select class="form-select filter" id="companyFilter"
-                                    aria-label="Floating label select example">
-                                    <option value="0">All</option>
-                                    <option value="ACTED">ACTED</option>
-                                    <option value="CAC Bank">CAC Bank</option>
-                                    <option value="Confidential">Confidential</option>
-                                    <option value="Creative Associates Int'l">Creative Associates Int'l</option>
-                                    <option value="DRC">DRC</option>
-                                    <option value="FMF">FMF</option>
-                                    <option value="IBTCI">IBTCI</option>
-                                    <option value="ICRC">ICRC</option>
-                                    <option value="INTERSOS">INTERSOS</option>
-                                    <option value="IOM">IOM</option>
-                                    <option value="IRC">IRC</option>
-                                    <option value="Islamic Relief">Islamic Relief</option>
-                                    <option value="Others">Others</option>
-                                </select>
-                                <label for="companyFilter">Company</label>
+                        @endif
+                        @if ($companies->count())
+                            <div class="col">
+                                <div class="form-floating">
+                                    <select class="form-select filter" name="company" id="companyFilter"
+                                        aria-label="Floating label select example">
+                                        <option value="" selected disabled>All</option>
+                                        @foreach ($companies as $company)
+                                            <option value="{{ $company->id }}">{{ $company->title }}</option>
+                                        @endforeach
+                                    </select>
+                                    <label for="companyFilter">Company</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-floating">
-                                <select class="form-select filter" id="cityFilter"
-                                    aria-label="Floating label select example">
-                                    <option value="0">All</option>
-                                    <option value="Aden">Aden</option>
-                                    <option value="Al-Dhala'e">Al-Dhala'e</option>
-                                    <option value="Al-Kokhah">Al-Kokhah</option>
-                                    <option value="Al-Mukha">Al-Mukha</option>
-                                    <option value="Amran">Amran</option>
-                                    <option value="Dhamar">Dhamar</option>
-                                    <option value="Hadramout">Hadramout</option>
-                                    <option value="Hajjah">Hajjah</option>
-                                    <option value="Ibb">Ibb</option>
-                                    <option value="Taiz">Taiz</option>
-                                </select>
-                                <label for="cityFilter">City</label>
+                        @endif
+                        @if ($cities->count())
+                            <div class="col">
+                                <div class="form-floating">
+                                    <select class="form-select filter" name="city" id="cityFilter"
+                                        aria-label="Floating label select example">
+                                        <option value="" selected disabled>All</option>
+                                        @foreach ($cities as $city)
+                                            <option value="{{ $city->id }}">{{ $city->title }}</option>
+                                        @endforeach
+                                    </select>
+                                    <label for="cityFilter">Company</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-floating ">
-                                <select class="form-select filter" id="jobTypeFilter">
-                                    <option value="0">All</option>
-                                    <option value="Graphics">Graphics</option>
-                                    <option value="Web">Web</option>
-                                    <option value="Android">Android</option>
-                                    <option value="Desktop">Desktop</option>
-                                    <option value="Marketting">Marketting</option>
-                                </select>
-                                <label for="jobTypeFilter">Type</label>
-                            </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -135,7 +99,7 @@
                                         <div class=" d-flex mb-3 ">
                                             <a class=" btn btn-light btn-square me-3 " href=" "><i
                                                     class=" far fa-heart text-danger "></i></a>
-                                            <a class=" btn btn-danger " href="job_details.html">View Details</a>
+                                            <a class=" btn btn-danger " href="{{ route('job_details') }}">View Details</a>
                                         </div>
                                         <small class=" text-truncate "><i
                                                 class=" far fa-calendar-alt text-danger me-2 "></i>Date Line: 13 Feb,
@@ -173,7 +137,7 @@
                                         <div class=" d-flex mb-3 ">
                                             <a class=" btn btn-light btn-square me-3 " href=" "><i
                                                     class=" far fa-heart text-danger "></i></a>
-                                            <a class=" btn btn-danger " href="job_details.html">View Details</a>
+                                            <a class=" btn btn-danger " href="{{ route('job_details') }}">View Details</a>
                                         </div>
                                         <small class=" text-truncate "><i
                                                 class=" far fa-calendar-alt text-danger me-2 "></i>Date Line: 13 Feb,
@@ -211,7 +175,7 @@
                                         <div class=" d-flex mb-3 ">
                                             <a class=" btn btn-light btn-square me-3 " href=" "><i
                                                     class=" far fa-heart text-danger "></i></a>
-                                            <a class=" btn btn-danger " href="job_details.html">View Details</a>
+                                            <a class=" btn btn-danger " href="{{ route('job_details') }}">View Details</a>
                                         </div>
                                         <small class=" text-truncate "><i
                                                 class=" far fa-calendar-alt text-danger me-2 "></i>Date Line: 13 Feb,
@@ -249,7 +213,8 @@
                                         <div class=" d-flex mb-3 ">
                                             <a class=" btn btn-light btn-square me-3 " href=" "><i
                                                     class=" far fa-heart text-danger "></i></a>
-                                            <a class=" btn btn-danger " href="job_details.html">View Details</a>
+                                            <a class=" btn btn-danger " href="{{ route('job_details') }}">View
+                                                Details</a>
                                         </div>
                                         <small class=" text-truncate "><i
                                                 class=" far fa-calendar-alt text-danger me-2 "></i>Date Line: 13 Feb,

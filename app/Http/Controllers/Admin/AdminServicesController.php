@@ -29,19 +29,19 @@ class AdminServicesController extends Controller
     {
         $this->validate($request,[
             'title' => 'required|min:3|max:100',
-            'image' => 'required'
         ]);
 
-        $create = Service::create(
-            [
-                'title' => $request->title,
-                'image' => SystemUtils::uploadFile($request->file('image'),'uploads/services'),
-                'description' => $request->description,
-                'is_active' => $request->is_active === "on"?1:0,
-                'created_by' => 1
-            ]
-            );
+        $fileds = [
+            'title' => $request->title,
+            'description' => $request->description,
+            'is_active' => $request->is_active === "on"?1:0,
+            'created_by' => 1
+        ];
 
+        if($request->has('image'))
+        $fileds['image'] = SystemUtils::uploadFile($request->file('image'),'uploads/services');
+
+        $create = Service::create($fileds);
 
         if($create)
         return redirect()->route('show_services')

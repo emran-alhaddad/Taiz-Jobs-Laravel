@@ -66,7 +66,7 @@
                                             <div class=" d-flex mb-3 ">
                                                 <a class=" btn btn-light btn-square me-3 " href=" "><i
                                                                 class=" far fa-heart text-danger "></i></a>
-                                                <a class=" btn btn-danger " href="job_details.html">View Details</a>
+                                                <a class=" btn btn-danger " href="{{ route('job_details') }}">View Details</a>
                                             </div>
                                             <small class=" text-truncate "><i
                                                             class=" far fa-calendar-alt text-danger me-2 "></i>Date Line: 01 Jan,
@@ -96,7 +96,7 @@
                                             <div class=" d-flex mb-3 ">
                                                 <a class=" btn btn-light btn-square me-3 " href=" "><i
                                                                 class=" far fa-heart text-danger "></i></a>
-                                                <a class=" btn btn-danger " href="job_details.html">View Details</a>
+                                                <a class=" btn btn-danger " href="{{ route('job_details') }}">View Details</a>
                                             </div>
                                             <small class=" text-truncate "><i
                                                             class=" far fa-calendar-alt text-danger me-2 "></i>Date Line: 01 Jan,
@@ -126,7 +126,7 @@
                                             <div class=" d-flex mb-3 ">
                                                 <a class=" btn btn-light btn-square me-3 " href=" "><i
                                                                 class=" far fa-heart text-danger "></i></a>
-                                                <a class=" btn btn-danger " href="job_details.html">View Details</a>
+                                                <a class=" btn btn-danger " href="{{ route('job_details') }}">View Details</a>
                                             </div>
                                             <small class=" text-truncate "><i
                                                             class=" far fa-calendar-alt text-danger me-2 "></i>Date Line: 01 Jan,
@@ -156,7 +156,7 @@
                                             <div class=" d-flex mb-3 ">
                                                 <a class=" btn btn-light btn-square me-3 " href=" "><i
                                                                 class=" far fa-heart text-danger "></i></a>
-                                                <a class=" btn btn-danger " href="job_details.html">View Details</a>
+                                                <a class=" btn btn-danger " href="{{ route('job_details') }}">View Details</a>
                                             </div>
                                             <small class=" text-truncate "><i
                                                             class=" far fa-calendar-alt text-danger me-2 "></i>Date Line: 01 Jan,
@@ -186,7 +186,7 @@
                                             <div class=" d-flex mb-3 ">
                                                 <a class=" btn btn-light btn-square me-3 " href=" "><i
                                                                 class=" far fa-heart text-danger "></i></a>
-                                                <a class=" btn btn-danger " href="job_details.html">View Details</a>
+                                                <a class=" btn btn-danger " href="{{ route('job_details') }}">View Details</a>
                                             </div>
                                             <small class=" text-truncate "><i
                                                             class=" far fa-calendar-alt text-danger me-2 "></i>Date Line: 01 Jan,
@@ -216,7 +216,7 @@
                                             <div class=" d-flex mb-3 ">
                                                 <a class=" btn btn-light btn-square me-3 " href=" "><i
                                                                 class=" far fa-heart text-danger "></i></a>
-                                                <a class=" btn btn-danger " href="job_details.html">View Details</a>
+                                                <a class=" btn btn-danger " href="{{ route('job_details') }}">View Details</a>
                                             </div>
                                             <small class=" text-truncate "><i
                                                             class=" far fa-calendar-alt text-danger me-2 "></i>Date Line: 01 Jan,
@@ -246,7 +246,7 @@
                                             <div class=" d-flex mb-3 ">
                                                 <a class=" btn btn-light btn-square me-3 " href=" "><i
                                                                 class=" far fa-heart text-danger "></i></a>
-                                                <a class=" btn btn-danger " href="job_details.html">View Details</a>
+                                                <a class=" btn btn-danger " href="{{ route('job_details') }}">View Details</a>
                                             </div>
                                             <small class=" text-truncate "><i
                                                             class=" far fa-calendar-alt text-danger me-2 "></i>Date Line: 01 Jan,
@@ -276,7 +276,7 @@
                                             <div class=" d-flex mb-3 ">
                                                 <a class=" btn btn-light btn-square me-3 " href=" "><i
                                                                 class=" far fa-heart text-danger "></i></a>
-                                                <a class=" btn btn-danger " href="job_details.html">View Details</a>
+                                                <a class=" btn btn-danger " href="{{ route('job_details') }}">View Details</a>
                                             </div>
                                             <small class=" text-truncate "><i
                                                             class=" far fa-calendar-alt text-danger me-2 "></i>Date Line: 01 Jan,

@@ -57,7 +57,6 @@
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
-    <script src="{{ asset('assets/vendor/js/template-customizer.js') }}"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('assets/js/config.js') }}"></script>
 
@@ -183,9 +182,23 @@
                     </li>
 
                     <li class="menu-item">
-                        <a href="/admin/categories" class="menu-link">
+                        <a href="{{ route('show_sliders') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-calendar"></i>
+                            <div data-i18n="Sliders">Sliders</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="{{ route('show_categories') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-calendar"></i>
                             <div data-i18n="Categories">Categories</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="{{ route('show_cities') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-calendar"></i>
+                            <div data-i18n="Cities">Cities</div>
                         </a>
                     </li>
 
@@ -786,8 +799,8 @@
 
 
     <div class="buy-now">
-        <a href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/" target="_blank"
-            class="btn btn-danger btn-buy-now">Buy Now</a>
+        <a href="#top"
+            class="btn btn-danger btn-buy-now"> <i class="fa fa-arrow-up"></i></a>
     </div>
 
 

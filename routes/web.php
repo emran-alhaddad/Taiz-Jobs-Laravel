@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminAddsController;
+use App\Http\Controllers\Admin\AdminCategoriesController;
+use App\Http\Controllers\Admin\AdminCitiesController;
 use App\Http\Controllers\Admin\AdminCompaniesController;
 use App\Http\Controllers\Admin\AdminJobsController;
 use App\Http\Controllers\Admin\AdminPartenersController;
 use App\Http\Controllers\Admin\AdminServicesController;
+use App\Http\Controllers\Admin\AdminSlidersController;
 use App\Http\Controllers\Front\WebsiteController;
 use App\Http\Controllers\User\UserDashboardController;
 use Illuminate\Support\Facades\Route;
@@ -51,6 +54,10 @@ Route::get('/admin/companies', [AdminCompaniesController::class, 'index'])->name
 Route::get('/admin/services', [AdminServicesController::class, 'index'])->name('show_services');
 Route::get('/admin/parteners', [AdminPartenersController::class, 'index'])->name('show_parteners');
 Route::get('/admin/adds', [AdminAddsController::class, 'index'])->name('show_advertizings');
+Route::get('/admin/sliders', [AdminSlidersController::class, 'index'])->name('show_sliders');
+Route::get('/admin/categories', [AdminCategoriesController::class, 'index'])->name('show_categories');
+Route::get('/admin/cities', [AdminCitiesController::class, 'index'])->name('show_cities');
+
 
 // Companies Routes
 Route::post('/admin/companies/add', [AdminCompaniesController::class, 'addNew'])->name('add_company');
@@ -71,3 +78,25 @@ Route::put('/admin/services/edit/{id}', [AdminServicesController::class, 'update
 Route::post('/admin/adds/add', [AdminAddsController::class, 'addNew'])->name('add_advertizing');
 Route::get('/admin/adds/edit/{id}', [AdminAddsController::class, 'edit'])->name('edit_advertizing');
 Route::put('/admin/adds/edit/{id}', [AdminAddsController::class, 'update']);
+
+// Sliders Routes
+Route::post('/admin/sliders/add', [AdminSlidersController::class, 'addNew'])->name('add_slider');
+Route::get('/admin/sliders/edit/{id}', [AdminSlidersController::class, 'edit'])->name('edit_slider');
+Route::put('/admin/sliders/edit/{id}', [AdminSlidersController::class, 'update']);
+
+// Categories Routes
+Route::post('/admin/categories/add', [AdminCategoriesController::class, 'addNew'])->name('add_category');
+Route::get('/admin/categories/edit/{id}', [AdminCategoriesController::class, 'edit'])->name('edit_category');
+Route::put('/admin/categories/edit/{id}', [AdminCategoriesController::class, 'update']);
+
+// Cities Routes
+Route::post('/admin/cities/add', [AdminCitiesController::class, 'addNew'])->name('add_city');
+Route::get('/admin/cities/edit/{id}', [AdminCitiesController::class, 'edit'])->name('edit_city');
+Route::put('/admin/cities/edit/{id}', [AdminCitiesController::class, 'update']);
+
+// Jobs Routes
+Route::post('/admin/jobs/add', [AdminJobsController::class, 'addNew'])->name('add_job');
+Route::get('/admin/jobs/edit/{id}', [AdminJobsController::class, 'edit'])->name('edit_job');
+Route::put('/admin/jobs/edit/{id}', [AdminJobsController::class, 'update']);
+
+

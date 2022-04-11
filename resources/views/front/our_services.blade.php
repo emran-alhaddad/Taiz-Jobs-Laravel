@@ -3,127 +3,23 @@
     @include('front.components.carosel')
 
     <section class="features" style="padding: 70px 0px 60px 0px;">
-        <div class="container">
+        <div class="container content-row">
             <div class="row">
-                <div class="col-md-4 col-sm-4">
-                    <div class="features-content">
-                        <span class="box1"><span aria-hidden="true"
-                                class="icon-dial fab fa-accessible-icon"></span></span>
-                        <h3>Create An Account</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid ut labore
-                            et dolore magna aliqua.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-4">
-                    <div class="features-content">
-                        <span class="box1"><span aria-hidden="true"
-                                class="icon-dial fab fa-accusoft"></span></span>
-                        <h3>Search Desired Job</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid ut labore
-                            et dolore magna aliqua.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-4">
-                    <div class="features-content">
-                        <span class="box1"><span aria-hidden="true" class="icon-dial fab fa-amilia"></span></span>
-                        <h3>Send Your Resume</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid ut labore
-                            et dolore magna aliqua.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-4">
-                    <div class="features-content">
-                        <span class="box1"><span aria-hidden="true"
-                                class="icon-dial fab fa-accessible-icon"></span></span>
-                        <h3>Create An Account</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid ut labore
-                            et dolore magna aliqua.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-4">
-                    <div class="features-content">
-                        <span class="box1"><span aria-hidden="true"
-                                class="icon-dial fab fa-accusoft"></span></span>
-                        <h3>Search Desired Job</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid ut labore
-                            et dolore magna aliqua.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-4">
-                    <div class="features-content">
-                        <span class="box1"><span aria-hidden="true" class="icon-dial fab fa-amilia"></span></span>
-                        <h3>Send Your Resume</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid ut labore
-                            et dolore magna aliqua.</p>
-                    </div>
-                </div>
+                @if ($services->count())
+                    @foreach ($services as $service)
+                        <div class="col-md-4 col-sm-4 ">
+                            <div class="features-content h-100">
+                                <span class="box1">
+                                    <img class="w-25 mb-3"
+                                        src="{{ asset('uploads/services') . '/' . $service->image }}" alt="">
+                                </span>
+                                <h3>{{ $service->title }}</h3>
+                                <p class="mt-2">{{ $service->description }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
             </div>
-
-            <div class="row">
-                <div class="col-md-4 col-sm-4">
-                    <div class="features-content">
-                        <span class="box1"><span aria-hidden="true"
-                                class="icon-dial fab fa-accessible-icon"></span></span>
-                        <h3>Create An Account</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid ut labore
-                            et dolore magna aliqua.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-4">
-                    <div class="features-content">
-                        <span class="box1"><span aria-hidden="true"
-                                class="icon-dial fab fa-accusoft"></span></span>
-                        <h3>Search Desired Job</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid ut labore
-                            et dolore magna aliqua.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-4">
-                    <div class="features-content">
-                        <span class="box1"><span aria-hidden="true" class="icon-dial fab fa-amilia"></span></span>
-                        <h3>Send Your Resume</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid ut labore
-                            et dolore magna aliqua.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-4">
-                    <div class="features-content">
-                        <span class="box1"><span aria-hidden="true"
-                                class="icon-dial fab fa-accessible-icon"></span></span>
-                        <h3>Create An Account</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid ut labore
-                            et dolore magna aliqua.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-4">
-                    <div class="features-content">
-                        <span class="box1"><span aria-hidden="true"
-                                class="icon-dial fab fa-accusoft"></span></span>
-                        <h3>Search Desired Job</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid ut labore
-                            et dolore magna aliqua.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-4">
-                    <div class="features-content">
-                        <span class="box1"><span aria-hidden="true" class="icon-dial fab fa-amilia"></span></span>
-                        <h3>Send Your Resume</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid ut labore
-                            et dolore magna aliqua.</p>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 @endsection
