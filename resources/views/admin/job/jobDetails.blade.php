@@ -29,6 +29,7 @@
         </div>
     @endif
 
+
     <div class="collapse mb-5" id="editJob">
         <div class="row {{ !$job->is_active ? 'alert-danger' : '' }}">
             <div class="col-4 d-flex flex-column justify-content-center align-items-center">
