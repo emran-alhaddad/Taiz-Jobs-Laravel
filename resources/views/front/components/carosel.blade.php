@@ -1,23 +1,24 @@
-<div id="carouselExampleDark" class="carousel carousel-dark slide container-fluid carousel-fade mt-2" data-bs-ride="carousel">
+@if ($sliders->count())
+    <div id="carouselExampleDark" class="carousel carousel-dark slide container-fluid carousel-fade mt-2"
+        data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            @foreach ($sliders as $slider)
+                <button type="button" data-bs-target="#carouselExampleDark" aria-label="Slide {{ $loop->index + 1 }}"
+                    data-bs-slide-to="{{ $loop->index }}"
+                    @if ($loop->first) class="active" aria-current="true" @endif></button>
+            @endforeach
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000">
-                <img src="{{ asset('front_assets/images/carousel (1).jpg') }}" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+
+            @foreach ($sliders as $slider)
+                <div class="carousel-item @if ($loop->first) active @endif " data-bs-interval="10000">
+                    <img src="{{ asset('uploads/sliders') . '/' . $slider->image }}" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{{ $slider->title }}</h5>
+                        <p>{{ $slider->description }}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="carousel-item" data-bs-interval="2000">
-                <img src="{{ asset('front_assets/images/carousel (2).jpg') }}" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
-                </div>
-            </div>
+            @endforeach
 
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
@@ -29,3 +30,4 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+@endif

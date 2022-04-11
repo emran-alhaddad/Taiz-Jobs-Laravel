@@ -4,7 +4,7 @@
     <div class="d-flex flex-row justify-content-end mb-3">
         <a class="btn btn-label-primary me-1 collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button"
             aria-expanded="false" aria-controls="collapseExample">
-            Add New Service
+            Add New Slider
         </a>
     </div>
 
@@ -28,14 +28,14 @@
 
     <div class="collapse @if ($errors->any()) {{ 'show' }} @endif" id="collapseExample" style="">
         <div class="card">
-            <h5 class="card-header">Add New Service</h5>
+            <h5 class="card-header">Add New Slider</h5>
             <div class="card-body">
 
-                <form action="{{ route('add_service') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('add_slider') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label class="form-label" for="bs-validation-name">Title</label>
-                        <input type="text" name="title" value="{{ old('title') }}" placeholder="service title"
+                        <input type="text" name="title" value="{{ old('title') }}" placeholder="slider title"
                             class="form-control @error('title') invalid @enderror">
                         @error('title')
                             <div class="invalid-feedback d-block">
@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label" for="bs-validation-upload-file">Service Image</label>
+                        <label class="form-label" for="bs-validation-upload-file">Slider Image</label>
                         <input name="image" type="file" class="form-control @error('image') invalid @enderror">
                         @error('image')
                             <div class="   invalid-feedback d-block">
@@ -64,6 +64,7 @@
                             </div>
                         @enderror
                     </div>
+
                     <div class="mb-3">
                         <label class="switch switch-primary">
                             <input type="checkbox" name="is_active" checked class="switch-input">
@@ -85,7 +86,7 @@
     </div>
 
     <div class="card">
-        <h5 class="card-header">Avaliable Services</h5>
+        <h5 class="card-header">Avaliable Sliders</h5>
         <div class="table-responsive ">
             <table class="table">
                 <caption class="ms-4">List of Compnies</caption>
@@ -100,34 +101,34 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if ($services->count())
-                        @foreach ($services as $service)
-                            <tr class="@if (!$service->is_active) table-danger @endif">
-                                <td>{{ $service->id }}</td>
+                    @if ($sliders->count())
+                        @foreach ($sliders as $slider)
+                            <tr class="@if (!$slider->is_active) table-danger @endif">
+                                <td>{{ $slider->id }}</td>
                                 <td>
                                     <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                                         <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
                                             class="avatar avatar-xl pull-up" title=""
-                                            data-bs-original-title="{{ $service->title }}">
-                                            <img src="../uploads/services/{{ $service->image }}" alt="Avatar"
+                                            data-bs-original-title="{{ $slider->title }}">
+                                            <img src="../uploads/sliders/{{ $slider->image }}" alt="Avatar"
                                                 class="rounded-circle">
                                         </li>
                                     </ul>
                                 </td>
-                                <td><strong>{{ $service->title }}</strong></td>
-                                <td>{{ $service->description }}</td>
+                                <td><strong>{{ $slider->title }}</strong></td>
+                                <td>{{ $slider->description }}</td>
 
                                 <td><span
-                                        class="badge bg-label-{{ $service->is_active ? 'primary' : 'danger' }} me-1">{{ $service->is_active ? 'Active' : 'Not Active' }}</span>
+                                        class="badge bg-label-{{ $slider->is_active ? 'primary' : 'danger' }} me-1">{{ $slider->is_active ? 'Active' : 'Not Active' }}</span>
                                 </td>
                                 <td>
                                     <div class="dropdown">
                                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                             data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="{{ route('edit_service',$service->id) }}" ><i class="bx bx-edit-alt me-1"></i>
+                                            <a class="dropdown-item" href="{{ route('edit_slider',$slider->id) }}" ><i class="bx bx-edit-alt me-1"></i>
                                                 Edit</a>
-                                            <a class="dropdown-item" data-id="{{ $service->id }}"
+                                            <a class="dropdown-item" data-id="{{ $slider->id }}"
                                                 href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
                                                 Delete</a>
                                         </div>
@@ -138,7 +139,7 @@
                     @else
                         <tr>
                             <td colspan="10" class="text-center p-5 bg-warning text-white">
-                                <p>There are no Services yet !</p>
+                                <p>There are no Sliders yet !</p>
                             </td>
                         </tr>
                     @endif

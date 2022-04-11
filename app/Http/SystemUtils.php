@@ -17,6 +17,7 @@ class SystemUtils{
 
             if(!empty($filename))
             {
+                if($filename!=="default.png")
                 unlink($destination.'/' . $filename);
             }
 

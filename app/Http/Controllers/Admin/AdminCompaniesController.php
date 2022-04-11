@@ -28,19 +28,19 @@ class AdminCompaniesController extends Controller
     {
         $this->validate($request,[
             'title' => 'required|min:5|max:20',
-            'image' => 'required'
         ]);
 
-        $create = Company::create(
-            [
-                'title' => $request->title,
-                'image' => SystemUtils::uploadFile($request->file('image'),'uploads/companies'),
-                'description' => $request->description,
-                'is_active' => $request->is_active === "on"?1:0,
-                'created_by' => 1
-            ]
-            );
+        $fileds = [
+            'title' => $request->title,
+            'description' => $request->description,
+            'is_active' => $request->is_active === "on"?1:0,
+            'created_by' => 1
+        ];
 
+        if($request->has('image'))
+        $fileds['image'] = SystemUtils::uploadFile($request->file('image'),'uploads/companies');
+
+        $create = Company::create($fileds);
 
         if($create)
         return redirect()->route('show_companies')

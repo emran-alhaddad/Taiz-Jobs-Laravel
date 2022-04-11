@@ -108,7 +108,7 @@
 
     <div class="card">
         <h5 class="card-header">Avaliable Advertizings</h5>
-        <div class="table-responsive text-nowrap">
+        <div class="table-responsive ">
             <table class="table">
                 <caption class="ms-4">List of Advertizings</caption>
                 <thead>
