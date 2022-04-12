@@ -76,4 +76,32 @@ class AdminServicesController extends Controller
         return back()->with(['error'=>'can not update service']);
 
     }
+
+    public function delete(Request $request)
+    {
+
+        $update = Service::updateOrCreate(
+            ['id' => $request->id],
+            ['is_active' => 0]
+        );
+
+        if ($update)
+            return back()
+                ->with(['success' => 'service deleted successful']);
+        return back()->with(['error' => 'can not delete service']);
+    }
+
+    public function restore(Request $request)
+    {
+
+        $update = Service::updateOrCreate(
+            ['id' => $request->id],
+            ['is_active' => 1]
+        );
+
+        if ($update)
+            return back()
+                ->with(['success' => 'service restored successful']);
+        return back()->with(['error' => 'can not restore service']);
+    }
 }

@@ -14,4 +14,8 @@ class City extends Model
         'is_active',
         'created_by'
     ];
+
+    public function job(){
+        return $this->hasMany(Job::class);
+    }
 }

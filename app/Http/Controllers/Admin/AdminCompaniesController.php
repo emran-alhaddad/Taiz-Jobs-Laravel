@@ -76,4 +76,32 @@ class AdminCompaniesController extends Controller
 
     }
 
+    public function delete(Request $request)
+    {
+
+        $update = Company::updateOrCreate(
+            ['id' => $request->id],
+            ['is_active' => 0]
+        );
+
+        if ($update)
+            return back()
+                ->with(['success' => 'company deleted successful']);
+        return back()->with(['error' => 'can not delete company']);
+    }
+
+    public function restore(Request $request)
+    {
+
+        $update = Company::updateOrCreate(
+            ['id' => $request->id],
+            ['is_active' => 1]
+        );
+
+        if ($update)
+            return back()
+                ->with(['success' => 'company restored successful']);
+        return back()->with(['error' => 'can not restore company']);
+    }
+
 }

@@ -75,4 +75,32 @@ class AdminCategoriesController extends Controller
         return back()->with(['error'=>'can not update category']);
 
     }
+
+    public function delete(Request $request)
+    {
+
+        $update = Category::updateOrCreate(
+            ['id' => $request->id],
+            ['is_active' => 0]
+        );
+
+        if ($update)
+            return back()
+                ->with(['success' => 'category deleted successful']);
+        return back()->with(['error' => 'can not delete category']);
+    }
+
+    public function restore(Request $request)
+    {
+
+        $update = Category::updateOrCreate(
+            ['id' => $request->id],
+            ['is_active' => 1]
+        );
+
+        if ($update)
+            return back()
+                ->with(['success' => 'category restored successful']);
+        return back()->with(['error' => 'can not restore category']);
+    }
 }

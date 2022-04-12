@@ -148,57 +148,58 @@
                 <ul class="menu-inner py-1 ps ps--active-y">
                     <li class="menu-item">
                         <a href="{{ route('show_jobs') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-calendar"></i>
+                            <i class="menu-icon tf-icons bx bx-briefcase"></i>
                             <div data-i18n="Jobs">Jobs</div>
                         </a>
                     </li>
 
                     <li class="menu-item">
                         <a href="{{ route('show_companies') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-calendar"></i>
+                            <i class="menu-icon tf-icons bx bx-building"></i>
                             <div data-i18n="Companies">Companies</div>
                         </a>
                     </li>
 
                     <li class="menu-item">
                         <a href="{{ route('show_parteners') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-calendar"></i>
+                            <i class="menu-icon tf-icons bx bx-accessibility"></i>
                             <div data-i18n="Parteners">Parteners</div>
                         </a>
                     </li>
 
                     <li class="menu-item">
                         <a href="{{ route('show_services') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-calendar"></i>
+                            <i class="menu-icon tf-icons bx bxs-spreadsheet"></i>
                             <div data-i18n="Services">Services</div>
                         </a>
                     </li>
 
                     <li class="menu-item">
                         <a href="{{ route('show_advertizings') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-calendar"></i>
+                            <i class="menu-icon tf-icons bx bx-money"></i>
                             <div data-i18n="Advertizings">Advertizings</div>
                         </a>
                     </li>
 
                     <li class="menu-item">
                         <a href="{{ route('show_sliders') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-calendar"></i>
+                            <i class="menu-icon tf-icons bx bx-images"></i>
                             <div data-i18n="Sliders">Sliders</div>
                         </a>
                     </li>
 
                     <li class="menu-item">
                         <a href="{{ route('show_categories') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-calendar"></i>
+                            <i class="menu-icon tf-icons bx bx-category"></i>
                             <div data-i18n="Categories">Categories</div>
                         </a>
                     </li>
 
                     <li class="menu-item">
                         <a href="{{ route('show_cities') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-calendar"></i>
+                            <i class="menu-icon tf-icons bx bxs-city"></i>
                             <div data-i18n="Cities">Cities</div>
+
                         </a>
                     </li>
 
@@ -780,7 +781,7 @@
 
                 <div class="content-wrapper">
                     <div class="container-xxl flex-grow-1 container-p-y">
-                    @yield('adminContent');
+                        @yield('adminContent');
                     </div>
                 </div>
             </div>
@@ -799,10 +800,65 @@
 
 
     <div class="buy-now">
-        <a href="#top"
-            class="btn btn-danger btn-buy-now"> <i class="fa fa-arrow-up"></i></a>
+        <a href="#top" class="btn btn-danger btn-buy-now"> <i class="fa fa-arrow-up"></i></a>
     </div>
 
+
+
+    <div id="deleteModal" class="modal fade deleteModal">
+        <form action="" id="deleteForm" method="post">
+            @csrf
+            @method("delete")
+            <div class="modal-dialog modal-confirm">
+                <div class="modal-content">
+                    <div class="modal-header flex-column">
+                        <div class="icon-box">
+                            <i class="fa fa-trash-alt"></i>
+                        </div>
+                        <h4 class="modal-title w-100">Are you sure?</h4>
+                        <button type="button" class="close" data-bs-dismiss="modal"
+                            aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Do you really want to delete this <span id="DeleteName"></span> ? This process cannot be
+                            undone.</p>
+                    </div>
+                    <input type="hidden" name="id" value="" id="deleteModelId">
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div id="restoreModal" class="modal fade deleteModal restoreModal">
+        <form action="" id="restoreForm" method="post">
+            @csrf
+            @method("put")
+            <div class="modal-dialog modal-confirm">
+                <div class="modal-content">
+                    <div class="modal-header flex-column">
+                        <div class="icon-box">
+                            <i class='bx bx-rotate-left' ></i>
+                        </div>
+                        <h4 class="modal-title w-100">Are you sure?</h4>
+                        <button type="button" class="close" data-bs-dismiss="modal"
+                            aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Do you really want to Restore this <span id="RestoreName"></span> ? </p>
+                    </div>
+                    <input type="hidden" name="id" value="" id="restoreModelId">
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-success">Restore</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 
 
 
@@ -831,6 +887,25 @@
     <!-- Page JS -->
     <script src="{{ asset('assets/js/dashboards-crm.js') }}"></script>
 
+    <script>
+        $(document).ready(function() {
+
+            $('.deleteBtn').on('click',function(e){
+                $("#deleteModelId").val($(this).attr('data-id'));
+                $("#deleteForm").attr('action',($(this).attr('data-action-type')));
+                $("#DeleteName").text(($(this).attr('data-model-type')));
+
+            });
+
+            $('.restoreBtn').on('click',function(e){
+                $("#restoreModelId").val($(this).attr('data-id'));
+                $("#restoreForm").attr('action',($(this).attr('data-action-type')));
+                $("#RestoreName").text(($(this).attr('data-model-type')));
+
+
+            });
+        });
+    </script>
 </body>
 
 

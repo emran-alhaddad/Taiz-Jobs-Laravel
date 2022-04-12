@@ -74,4 +74,32 @@ class AdminSlidersController extends Controller
         return back()->with(['error'=>'can not update slider']);
 
     }
+
+    public function delete(Request $request)
+    {
+
+        $update = Slider::updateOrCreate(
+            ['id' => $request->id],
+            ['is_active' => 0]
+        );
+
+        if ($update)
+            return back()
+                ->with(['success' => 'slider deleted successful']);
+        return back()->with(['error' => 'can not delete slider']);
+    }
+
+    public function restore(Request $request)
+    {
+
+        $update = Slider::updateOrCreate(
+            ['id' => $request->id],
+            ['is_active' => 1]
+        );
+
+        if ($update)
+            return back()
+                ->with(['success' => 'slider restored successful']);
+        return back()->with(['error' => 'can not restore slider']);
+    }
 }
