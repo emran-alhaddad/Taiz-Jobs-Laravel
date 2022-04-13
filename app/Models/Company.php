@@ -18,4 +18,8 @@ class Company extends Model
         'created_by'
     ];
 
+    public function job(){
+        return $this->hasMany(Job::class);
+    }
+
 }

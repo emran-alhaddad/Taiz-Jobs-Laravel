@@ -19,7 +19,7 @@ class AdminJobsController extends Controller
             'cities' => City::get(),
             'categories' => Category::get(),
             'companies' => Company::get(),
-            'jobs' => Job::get()
+            'jobs' => Job::with(['company','city','category'])->get()
 
         ]);
     }
@@ -30,7 +30,7 @@ class AdminJobsController extends Controller
             'cities' => City::get(),
             'categories' => Category::get(),
             'companies' => Company::get(),
-            'job' => Job::find($id)
+            'job' => Job::with(['company','city','category'])->find($id)
         ]);
     }
 
@@ -113,5 +113,33 @@ class AdminJobsController extends Controller
             return redirect()->route('edit_job', $request->id)
                 ->with(['success' => 'job updated successful']);
         return back()->with(['error' => 'can not update job']);
+    }
+
+    public function delete(Request $request)
+    {
+
+        $update = Job::updateOrCreate(
+            ['id' => $request->id],
+            ['is_active' => 0]
+        );
+
+        if ($update)
+            return back()
+                ->with(['success' => 'job deleted successful']);
+        return back()->with(['error' => 'can not delete job']);
+    }
+
+    public function restore(Request $request)
+    {
+
+        $update = Job::updateOrCreate(
+            ['id' => $request->id],
+            ['is_active' => 1]
+        );
+
+        if ($update)
+            return back()
+                ->with(['success' => 'job restored successful']);
+        return back()->with(['error' => 'can not restore job']);
     }
 }

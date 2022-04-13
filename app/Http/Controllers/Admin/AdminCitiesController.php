@@ -65,4 +65,32 @@ class AdminCitiesController extends Controller
 
     }
 
+    public function delete(Request $request)
+    {
+
+        $update = City::updateOrCreate(
+            ['id' => $request->id],
+            ['is_active' => 0]
+        );
+
+        if ($update)
+            return back()
+                ->with(['success' => 'city deleted successful']);
+        return back()->with(['error' => 'can not delete city']);
+    }
+
+    public function restore(Request $request)
+    {
+
+        $update = City::updateOrCreate(
+            ['id' => $request->id],
+            ['is_active' => 1]
+        );
+
+        if ($update)
+            return back()
+                ->with(['success' => 'city restored successful']);
+        return back()->with(['error' => 'can not restore city']);
+    }
+
 }

@@ -78,4 +78,32 @@ class AdminAddsController extends Controller
                 ->with(['success' => 'advertizing updated successful']);
         return back()->with(['error' => 'can not update advertizing']);
     }
+
+    public function delete(Request $request)
+    {
+
+        $update = Adds::updateOrCreate(
+            ['id' => $request->id],
+            ['is_active' => 0]
+        );
+
+        if ($update)
+            return back()
+                ->with(['success' => 'advertizing deleted successful']);
+        return back()->with(['error' => 'can not delete advertizing']);
+    }
+
+    public function restore(Request $request)
+    {
+
+        $update = Adds::updateOrCreate(
+            ['id' => $request->id],
+            ['is_active' => 1]
+        );
+
+        if ($update)
+            return back()
+                ->with(['success' => 'advertizing restored successful']);
+        return back()->with(['error' => 'can not restore advertizing']);
+    }
 }

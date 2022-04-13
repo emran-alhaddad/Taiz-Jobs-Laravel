@@ -79,4 +79,32 @@ class AdminPartenersController extends Controller
         return back()->with(['error'=>'can not update partener']);
 
     }
+
+    public function delete(Request $request)
+    {
+
+        $update = Partener::updateOrCreate(
+            ['id' => $request->id],
+            ['is_active' => 0]
+        );
+
+        if ($update)
+            return back()
+                ->with(['success' => 'partener deleted successful']);
+        return back()->with(['error' => 'can not delete partener']);
+    }
+
+    public function restore(Request $request)
+    {
+
+        $update = Partener::updateOrCreate(
+            ['id' => $request->id],
+            ['is_active' => 1]
+        );
+
+        if ($update)
+            return back()
+                ->with(['success' => 'partener restored successful']);
+        return back()->with(['error' => 'can not restore partener']);
+    }
 }
